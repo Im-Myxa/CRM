@@ -5,11 +5,7 @@ import routes from './routes';
 function App() {
   const element = useRoutes(routes());
 
-  return (
-    <>
-      <div>{element}</div>
-    </>
-  );
+  return <div>{element}</div>;
 }
 
 export default App;
