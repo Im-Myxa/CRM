@@ -28,7 +28,7 @@ const TableHead = () => {
         </th>
         {columns.map(column => {
           return (
-            <th className='px-3 py-5' key={column}>
+            <th className='px-3 py-5' key={column.name}>
               <div className='flex items-center gap-2'>
                 {column.name}
                 {column.sort ? (

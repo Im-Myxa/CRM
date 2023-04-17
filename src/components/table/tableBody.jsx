@@ -10,8 +10,8 @@ const TableBody = ({ contacts }) => {
         return (
           <>
             <tr
-              className='bg-white shadow-lg shadow-black/[0.2] hover:bg-gray-100'
               key={contact.clientId}
+              className='bg-white shadow-lg shadow-black/[0.2] hover:bg-gray-100'
             >
               <td className='w-4 p-4'>
                 <div className='flex items-center'>

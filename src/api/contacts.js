@@ -34,7 +34,7 @@ export const contacts = [
   },
   {
     clientId: '123454',
-    clientName: 'Entity name',
+    clientName: 'Bogdan',
     TRNPPSN: '654321',
     dateEnd: '23/06/2022',
     dateARD: '23/06/2022',
@@ -78,7 +78,7 @@ export const contacts = [
   },
   {
     clientId: '123458',
-    clientName: 'Entity name',
+    clientName: 'Vova',
     TRNPPSN: '654321',
     dateEnd: '23/06/2022',
     dateARD: '23/06/2022',
@@ -144,7 +144,7 @@ export const contacts = [
   },
   {
     clientId: '123465',
-    clientName: 'Entity name',
+    clientName: 'Bob',
     TRNPPSN: '654321',
     dateEnd: '23/06/2022',
     dateARD: '23/06/2022',
