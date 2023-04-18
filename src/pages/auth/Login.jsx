@@ -3,12 +3,17 @@ import TextField from '../../components/form/textField';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../components/logo';
 import AuthButton from '../../components/button/authButton';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../store/features/authSlice';
+import { users } from '../../api/users';
 
 const Login = () => {
   const [data, setData] = useState({
     email: '',
     password: ''
   });
+
+  const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
     setData(prevState => ({
@@ -19,6 +24,10 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const user = users.filter(user => {
+      return user.email === data.email;
+    });
+    dispatch(logIn(user));
   };
   return (
     <div className='flex min-h-screen justify-center pt-40 font-poppins'>
