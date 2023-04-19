@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AuthButton = ({ label }) => {
+const AuthButton = ({ label, onHandleSubmit }) => {
   return (
     <button
       type='button'
+      onClick={onHandleSubmit}
       className='border border-black px-2 py-1 hover:bg-black hover:text-white'
     >
       {label}
@@ -13,7 +14,8 @@ const AuthButton = ({ label }) => {
 };
 
 AuthButton.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  onHandleSubmit: PropTypes.func
 };
 
 export default AuthButton;

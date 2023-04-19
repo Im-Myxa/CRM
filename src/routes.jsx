@@ -6,16 +6,9 @@ import AccountLayout from './pages/account/AccountLayout';
 import Contacts from './pages/account/Contacts';
 import Calendar from './pages/account/Calendar';
 import ReportProject from './pages/account/ProjectReport';
+import { Navigate } from 'react-router-dom';
 
 const routes = () => [
-  {
-    path: '/auth',
-    element: <AuthLayout />,
-    children: [
-      { path: 'signIn', element: <Login /> },
-      { path: 'signUp', element: <Register /> }
-    ]
-  },
   {
     path: '/',
     element: <AccountLayout />,
@@ -24,6 +17,19 @@ const routes = () => [
       { path: 'calendar', element: <Calendar /> },
       { path: 'projectReport', element: <ReportProject /> }
     ]
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      { path: 'signIn', element: <Login /> },
+      { path: 'signUp', element: <Register /> }
+    ]
+  },
+
+  {
+    path: '*',
+    element: <Navigate to='/' />
   }
 ];
 

@@ -3,15 +3,16 @@ import TextField from '../../components/form/textField';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../components/logo';
 import AuthButton from '../../components/button/authButton';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../../store/features/authSlice';
-import { users } from '../../api/users';
 
 const Login = () => {
   const [data, setData] = useState({
     email: '',
     password: ''
   });
+
+  const { error } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
@@ -24,11 +25,9 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const user = users.filter(user => {
-      return user.email === data.email;
-    });
-    dispatch(logIn(user));
+    dispatch(logIn(data));
   };
+
   return (
     <div className='flex min-h-screen justify-center pt-40 font-poppins'>
       <div className='flex-col items-center space-y-10'>
@@ -39,6 +38,11 @@ const Login = () => {
           <p className='text-center text-2xl'>
             Welcome To CRM System Sign In To Your Account
           </p>
+          {error && (
+            <div className='border border-red-500 bg-red-200 p-2 text-center font-bold'>
+              {error}
+            </div>
+          )}
           <TextField
             label='Email'
             name='email'
@@ -53,7 +57,7 @@ const Login = () => {
             onChange={handleChange}
           />
           <div className='flex items-center justify-between'>
-            <AuthButton label='SIGN IN' />
+            <AuthButton label='SIGN IN' onHandleSubmit={handleSubmit} />
             <NavLink
               to='/auth/signUp'
               className='rounded-lg px-2 py-1 hover:bg-black/[0.1]'

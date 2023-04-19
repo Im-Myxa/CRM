@@ -6,9 +6,6 @@ import VisiblePassword from '../icons/visiblePassword';
 const TextField = ({ label, type, name, value, onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  //   const getInputClasses = () => {
-  //     return 'form-control' + (error ? ' is-invalid' : '');
-  //   };
   const toggleShowPassword = () => {
     setShowPassword(prevState => !prevState);
   };
@@ -25,7 +22,7 @@ const TextField = ({ label, type, name, value, onChange }) => {
           name={name}
           value={value}
           onChange={onChange}
-          className='h-[40px] w-[350px] border border-black font-roboto'
+          className='h-[40px] w-[350px] border border-black pl-2 font-roboto'
         />
 
         {type === 'password' && (
@@ -37,7 +34,7 @@ const TextField = ({ label, type, name, value, onChange }) => {
             {showPassword ? <InvisiblePassword /> : <VisiblePassword />}
           </button>
         )}
-        {/* {error && <div className='invalid-feedback '>{error}</div>} */}
+        {/* {error && <div className=' '>{error}</div>} */}
       </div>
     </div>
   );

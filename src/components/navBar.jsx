@@ -4,9 +4,12 @@ import CalendarIcon from './icons/calendarIcon';
 import ProjectIcon from './icons/projectIcon';
 import LogOutIcon from './icons/logOutIcon';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../store/features/authSlice';
 
 const NavBar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
+  const dispatch = useDispatch();
   return (
     <nav className='relative flex h-[1022px] min-w-[226px] flex-col font-poppins text-xl'>
       <ul className='mt-[46px] flex-col space-y-12 '>
@@ -53,7 +56,10 @@ const NavBar = () => {
           </NavLink>
         </li>
       </ul>
-      <button className='absolute bottom-0 flex w-full items-center justify-center gap-2 border-t border-black/[0.2] py-6'>
+      <button
+        onClick={() => dispatch(logOut())}
+        className='absolute bottom-0 flex w-full items-center justify-center gap-2 border-t border-black/[0.2] py-6'
+      >
         <LogOutIcon />
         <span>Log out</span>
       </button>
