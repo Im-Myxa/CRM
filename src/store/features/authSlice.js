@@ -21,7 +21,7 @@ const authSlice = createSlice({
         return user.email === action.payload.email;
       });
 
-      if (!data) {
+      if (data.length === 0) {
         state.error = 'Invalid email or password';
         return;
       } else {
@@ -33,11 +33,15 @@ const authSlice = createSlice({
         state.error = null;
         state.isAuth = true;
       }
+    },
+    register: (state, action) => {
+      state.isAuth = true;
+      state.user = action.payload;
     }
   },
   extraReducers: {}
 });
 
-export const { logOut, logIn } = authSlice.actions;
+export const { logOut, logIn, register } = authSlice.actions;
 
 export default authSlice.reducer;

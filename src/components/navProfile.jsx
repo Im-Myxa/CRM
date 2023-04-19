@@ -1,18 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const NavProfile = () => {
-  const { user, isAuth } = useSelector(state => state.auth);
-  const navigate = useNavigate();
-  console.log(user);
-  console.log(isAuth);
-
-  // useEffect(() => {
-  if (!isAuth) {
-    return navigate('/auth/signIn');
-  }
-  // }, [isAuth]);
+  const { user } = useSelector(state => state.auth);
 
   return (
     <div className='mr-10 flex items-center gap-2'>

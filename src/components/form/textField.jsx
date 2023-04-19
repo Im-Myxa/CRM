@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import InvisiblePassword from '../icons/invisiblePassord';
 import VisiblePassword from '../icons/visiblePassword';
 
-const TextField = ({ label, type, name, value, onChange }) => {
+const TextField = ({ label, type, name, value, onChange, error }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword(prevState => !prevState);
   };
   return (
-    <div className='space-y-1'>
+    <div className=''>
       <label htmlFor={name} className='font-roboto font-bold'>
-        {' '}
         {label}
       </label>
       <div className='relative flex items-center'>
@@ -34,7 +33,9 @@ const TextField = ({ label, type, name, value, onChange }) => {
             {showPassword ? <InvisiblePassword /> : <VisiblePassword />}
           </button>
         )}
-        {/* {error && <div className=' '>{error}</div>} */}
+      </div>
+      <div className='h-5'>
+        {error && <div className='text-sm text-red-500'>{error}</div>}
       </div>
     </div>
   );
@@ -47,7 +48,8 @@ TextField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  error: PropTypes.string
 };
 
 export default TextField;
