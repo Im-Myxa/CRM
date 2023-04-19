@@ -100,6 +100,13 @@ const Login = () => {
             </NavLink>
           </div>
         </form>
+        <div className='border  border-black bg-black/[0.1]'>
+          <div className='p-2'>
+            <p>Для входа необходимо ввести:</p>
+            <p>Email: bob@gmail.com</p>
+            <p>Password: Bob12345</p>
+          </div>
+        </div>
       </div>
     </div>
   );
